@@ -26,8 +26,14 @@ while game_is_running:
     # Déplacement des projectiles
     for projectile in game.player.all_projectiles:
         projectile.move()
+    # Déplacement des montres
+    for monster in game.all_monsters:
+        monster.forward()
+
     # Application des projectiles sur la surface
     game.player.all_projectiles.draw(screen)
+    # Application des monstres sur la surface
+    game.all_monsters.draw(screen)
 
     # Déplacement du joueur
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
