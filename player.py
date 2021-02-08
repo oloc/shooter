@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
 
     def launch_projectile(self) -> None:
         # Instanciation du projectile dans le groupe
-        self.all_projectiles.add(Projectile())
+        self.all_projectiles.add(Projectile(self))
 
     def move_left(self):
         self.rect.x -= self.velocity
