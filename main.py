@@ -22,6 +22,8 @@ while game_is_running:
     screen.blit(background, (0, -200))
     # Application du joueur sur la surface
     screen.blit(game.player.image, game.player.rect)
+    # Application des projectiles sur la surface
+    game.player.all_projectiles.draw(screen)
 
     # Déplacement du joueur
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
