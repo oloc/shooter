@@ -16,3 +16,7 @@ class Monster(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 1000
         self.rect.y = 540
+        self.velocity = 5
+
+    def forward(self):
+        self.rect.x -= self.velocity
