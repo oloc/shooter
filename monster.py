@@ -28,12 +28,8 @@ class Monster(Sprite):
             self.recycle()
 
     def update_health_bar(self, surface: Surface):
-        back_bar_color = (60, 63, 60)
-        bar_color = (111, 210, 46)
-        back_bar_position = [self.rect.x + 10, self.rect.y - 20, self.max_health, 5]
-        bar_position = [self.rect.x + 10, self.rect.y - 20, self.health, 5]
-        draw.rect(surface, back_bar_color, back_bar_position)
-        draw.rect(surface, bar_color, bar_position)
+        draw.rect(surface, (60, 63, 60), [self.rect.x + 10, self.rect.y - 20, self.max_health, 5])
+        draw.rect(surface, (111, 210, 46), [self.rect.x + 10, self.rect.y - 20, self.health, 5])
 
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
