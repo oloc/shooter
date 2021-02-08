@@ -22,6 +22,13 @@ while game_is_running:
     screen.blit(background, (0, -200))
     # Application du joueur sur la surface
     screen.blit(game.player.image, game.player.rect)
+
+    # Déplacement du joueur
+    if game.pressed.get(pygame.K_RIGHT):
+        game.player.move_right()
+    elif game.pressed.get(pygame.K_LEFT):
+        game.player.move_left()
+
     # mise à jour de l'écran
     pygame.display.flip()
 
@@ -32,7 +39,6 @@ while game_is_running:
             game_is_running = False
             pygame.quit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                game.player.move_right()
-            elif event.key == pygame.K_LEFT:
-                game.player.move_left()
+            game.pressed[event.key] = True
+        elif event.type == pygame.KEYUP:
+            game.pressed[event.key] = False
