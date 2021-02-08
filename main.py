@@ -29,6 +29,7 @@ while game_is_running:
     # Déplacement des montres
     for monster in game.all_monsters:
         monster.forward()
+        monster.update_health_bar(screen)
 
     # Application des projectiles sur la surface
     game.player.all_projectiles.draw(screen)
