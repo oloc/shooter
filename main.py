@@ -24,9 +24,9 @@ while game_is_running:
     screen.blit(game.player.image, game.player.rect)
 
     # Déplacement du joueur
-    if game.pressed.get(pygame.K_RIGHT):
+    if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
         game.player.move_right()
-    elif game.pressed.get(pygame.K_LEFT):
+    elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
         game.player.move_left()
 
     # mise à jour de l'écran
