@@ -17,6 +17,7 @@ class Game:
         self.pressed = dict()
 
         self.spawn_monster()
+        self.spawn_monster()
 
     def check_collision(self, sprite: Sprite, group: Group):
         return spritecollide(sprite, group, False, collide_mask)
