@@ -31,3 +31,8 @@ while game_is_running:
         if event.type == pygame.QUIT:
             game_is_running = False
             pygame.quit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                game.player.move_right()
+            elif event.key == pygame.K_LEFT:
+                game.player.move_left()
