@@ -11,6 +11,8 @@ class Game:
 
     def __init__(self):
         self.player = Player(self)
+        self.all_players = Group()
+        self.all_players.add(self.player)
         self.all_monsters = Group()
         self.pressed = dict()
 
@@ -20,5 +22,5 @@ class Game:
         return spritecollide(sprite, group, False, collide_mask)
 
     def spawn_monster(self):
-        monster = Monster()
+        monster = Monster(self)
         self.all_monsters.add(monster)
