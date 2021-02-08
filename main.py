@@ -22,6 +22,10 @@ while game_is_running:
     screen.blit(background, (0, -200))
     # Application du joueur sur la surface
     screen.blit(game.player.image, game.player.rect)
+
+    # Déplacement des projectiles
+    for projectile in game.player.all_projectiles:
+        projectile.move()
     # Application des projectiles sur la surface
     game.player.all_projectiles.draw(screen)
 
