@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import pygame
+from pygame import draw
+from pygame.surface import Surface
 
 from projectile import Projectile
 
@@ -31,3 +33,7 @@ class Player(pygame.sprite.Sprite):
     def move_right(self):
         if not self.game.check_collision(self, self.game.all_monsters):
             self.rect.x += self.velocity
+
+    def update_health_bar(self, surface: Surface):
+        draw.rect(surface, (60, 63, 60), [self.rect.x + 50, self.rect.y + 20, self.max_health, 7])
+        draw.rect(surface, (111, 210, 46), [self.rect.x + 50, self.rect.y + 20, self.health, 7])

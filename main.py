@@ -23,6 +23,9 @@ while game_is_running:
     # Application du joueur sur la surface
     screen.blit(game.player.image, game.player.rect)
 
+    # Application de la barre de vie du joueur
+    game.player.update_health_bar(screen)
+
     # Déplacement des projectiles
     for projectile in game.player.all_projectiles:
         projectile.move()
