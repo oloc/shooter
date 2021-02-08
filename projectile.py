@@ -18,6 +18,8 @@ class Projectile(pygame.sprite.Sprite):
 
     def move(self) -> None:
         self.rect.x += self.velocity
+        if self.rect.x > 1080:
+            self.remove()
 
     def remove(self) -> None:
         self.player.all_projectiles.remove(self)
