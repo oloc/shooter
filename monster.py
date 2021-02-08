@@ -20,6 +20,11 @@ class Monster(Sprite):
         self.rect.y = 540
         self.velocity = 5
 
+    def damage(self, amount):
+        self.health -= amount
+        if self.health <= 0:
+            self.recycle()
+
     def update_health_bar(self, surface: Surface):
         back_bar_color = (60, 63, 60)
         bar_color = (111, 210, 46)
