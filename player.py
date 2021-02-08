@@ -13,3 +13,4 @@ class Player(pygame.sprite.Sprite):
         self.attack = 10
         self.velocity = 5
         self.image = pygame.image.load('assets/player.png')
+        self.rect = self.image.get_rect()
