@@ -14,3 +14,6 @@ class Projectile(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = player.rect.x + 120
         self.rect.y = player.rect.y + 80
+
+    def move(self) -> None:
+        self.rect.x += self.velocity
