@@ -31,3 +31,7 @@ class Monster(Sprite):
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
             self.rect.x -= self.velocity
+
+    def recycle(self):
+        self.rect.x = 1000
+        self.health = self.max_health
