@@ -3,7 +3,7 @@
 
 import pygame
 
-from player import Player
+from game import Game
 
 pygame.init()
 
@@ -12,8 +12,7 @@ pygame.display.set_caption("Comet Fall Game")
 screen = pygame.display.set_mode(size=(1080, 720))
 
 background = pygame.image.load('assets/bg.jpg')
-player = Player()
-
+game = Game()
 game_is_running = True
 
 # Boucle tant que le jeu est en cours
@@ -22,7 +21,7 @@ while game_is_running:
     # Application de l'arrière plan sur la surface
     screen.blit(background, (0, -200))
     # Application du joueur sur la surface
-    screen.blit(player.image, player.rect)
+    screen.blit(game.player.image, game.player.rect)
     # mise à jour de l'écran
     pygame.display.flip()
 
