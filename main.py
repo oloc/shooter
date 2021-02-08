@@ -40,5 +40,8 @@ while game_is_running:
             pygame.quit()
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
+            # Détection de la barre espace
+            if event.key == pygame.K_SPACE:
+                game.player.launch_projectile()
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
