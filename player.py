@@ -12,3 +12,4 @@ class Player(pygame.sprite.Sprite):
         self.max_health = 100
         self.attack = 10
         self.velocity = 5
+        self.image = pygame.image.load('assets/player.png')
