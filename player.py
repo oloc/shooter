@@ -14,3 +14,5 @@ class Player(pygame.sprite.Sprite):
         self.velocity = 5
         self.image = pygame.image.load('assets/player.png')
         self.rect = self.image.get_rect()
+        self.rect.x = 400
+        self.rect.y = 500
