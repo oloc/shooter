@@ -7,7 +7,7 @@ pygame.init()
 
 # Générer la fenêtre du jeu
 pygame.display.set_caption("Comet Fall Game")
-pygame.display.set_mode(size=(500, 300))
+pygame.display.set_mode(size=(1080, 720))
 
 game_is_running = True
 
