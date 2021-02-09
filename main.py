@@ -55,3 +55,6 @@ while game_is_running:
                 game.player.launch_projectile()
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if play_button_rect.collidepoint(event.pos):
+                game.is_playing = True
