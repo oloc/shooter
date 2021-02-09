@@ -4,6 +4,7 @@
 import pygame
 
 from game import Game
+from math import ceil
 
 pygame.init()
 
@@ -12,6 +13,10 @@ pygame.display.set_caption("Comet Fall Game")
 screen = pygame.display.set_mode(size=(1080, 720))
 
 background = pygame.image.load('assets/bg.jpg')
+banner = pygame.transform.scale(pygame.image.load('assets/banner.png'), (500, 500))
+banner_rect = banner.get_rect()
+banner_rect.x = ceil(screen.get_width() / 4)
+
 game = Game()
 game_is_running = True
 
@@ -24,6 +29,8 @@ while game_is_running:
     # Vérification si le jeu a commencé
     if game.is_playing:
         game.update(screen)
+    else:
+        screen.blit(banner, banner_rect)
 
     # mise à jour de l'écran
     pygame.display.flip()
