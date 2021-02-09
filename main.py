@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from math import ceil
+
 import pygame
 
 from game import Game
-from math import ceil
 
 pygame.init()
 
@@ -16,6 +17,11 @@ background = pygame.image.load('assets/bg.jpg')
 banner = pygame.transform.scale(pygame.image.load('assets/banner.png'), (500, 500))
 banner_rect = banner.get_rect()
 banner_rect.x = ceil(screen.get_width() / 4)
+
+play_button = pygame.transform.scale(pygame.image.load('assets/button.png'), (400, 150))
+play_button_rect = play_button.get_rect()
+play_button_rect.x = ceil(screen.get_width() / 3.33)
+play_button_rect.y = ceil(screen.get_height() / 2)
 
 game = Game()
 game_is_running = True
@@ -30,6 +36,7 @@ while game_is_running:
     if game.is_playing:
         game.update(screen)
     else:
+        screen.blit(play_button, play_button_rect)
         screen.blit(banner, banner_rect)
 
     # mise à jour de l'écran
