@@ -18,9 +18,6 @@ class Game:
         self.all_monsters = Group()
         self.pressed = dict()
 
-        self.spawn_monster()
-        self.spawn_monster()
-
     def check_collision(self, sprite: Sprite, group: Group):
         return spritecollide(sprite, group, False, collide_mask)
 
@@ -32,6 +29,11 @@ class Game:
     def spawn_monster(self):
         monster = Monster(self)
         self.all_monsters.add(monster)
+
+    def start(self):
+        self.is_playing = True
+        self.spawn_monster()
+        self.spawn_monster()
 
     def update(self, screen):
         # Application du joueur sur la surface
