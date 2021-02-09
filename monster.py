@@ -15,7 +15,7 @@ class Monster(Sprite):
         self.game = game
         self.health = 100
         self.max_health = 100
-        self.attack = 5
+        self.attack = 0.3
         self.image = image.load('assets/mummy.png')
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
@@ -34,6 +34,8 @@ class Monster(Sprite):
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
             self.rect.x -= self.velocity
+        else:
+            self.game.player.damage(self.attack)
 
     def recycle(self):
         self.rect.x = 1000 + random.randint(0, 300)

@@ -23,6 +23,10 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = 400
         self.rect.y = 500
 
+    def damage(self, amount):
+        if self.health - amount > amount:
+            self.health -= amount
+
     def launch_projectile(self) -> None:
         # Instanciation du projectile dans le groupe
         self.all_projectiles.add(Projectile(self))
