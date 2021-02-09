@@ -24,6 +24,11 @@ class Game:
     def check_collision(self, sprite: Sprite, group: Group):
         return spritecollide(sprite, group, False, collide_mask)
 
+    def game_over(self):
+        self.all_monsters = Group()
+        self.player.health = self.player.max_health
+        self.is_playing = False
+
     def spawn_monster(self):
         monster = Monster(self)
         self.all_monsters.add(monster)
