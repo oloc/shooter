@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from pygame import K_LEFT, K_RIGHT
-from pygame.sprite import Group, Sprite, collide_mask, spritecollide
+from pygame.sprite import Group, Sprite, spritecollide
+
+from typing import List
 
 from monster import Monster
 from player import Player
@@ -18,24 +20,24 @@ class Game:
         self.all_monsters = Group()
         self.pressed = dict()
 
-    def check_collision(self, sprite: Sprite, group: Group):
-        return spritecollide(sprite, group, False, collide_mask)
+    def check_collision(self, sprite: Sprite, group: Group) -> List[Sprite]:
+        return spritecollide(sprite, group, False)
 
-    def game_over(self):
+    def game_over(self) -> None:
         self.all_monsters = Group()
         self.player.health = self.player.max_health
         self.is_playing = False
 
-    def spawn_monster(self):
+    def spawn_monster(self) -> None:
         monster = Monster(self)
         self.all_monsters.add(monster)
 
-    def start(self):
+    def start(self) -> None:
         self.is_playing = True
         self.spawn_monster()
         self.spawn_monster()
 
-    def update(self, screen):
+    def update(self, screen) -> None:
         # Application du joueur sur la surface
         screen.blit(self.player.image, self.player.rect)
 
