@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pygame
+from pygame import image, sprite, transform
 
 
-class Projectile(pygame.sprite.Sprite):
+class Projectile(sprite.Sprite):
 
     def __init__(self, player):
         super().__init__()
         self.player = player
         self.velocity = 5
-        self.image = pygame.image.load('assets/projectile.png')
-        self.image = pygame.transform.scale(self.image, (50, 50))
+        self.image = image.load('assets/projectile.png')
+        self.image = transform.scale(self.image, (50, 50))
         self.origin_image = self.image
         self.angle = 0
         self.rect = self.image.get_rect()
@@ -32,5 +32,5 @@ class Projectile(pygame.sprite.Sprite):
 
     def rotate(self) -> None:
         self.angle += 12
-        self.image = pygame.transform.rotozoom(self.origin_image, self.angle, 1)
+        self.image = transform.rotozoom(self.origin_image, self.angle, 1)
         self.rect = self.image.get_rect(center=self.rect.center)
