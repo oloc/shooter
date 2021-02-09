@@ -6,6 +6,7 @@ from pygame.sprite import Group, Sprite, spritecollide
 
 from typing import List
 
+from comet_event import CometFallEvent
 from monster import Monster
 from player import Player
 
@@ -17,6 +18,7 @@ class Game:
         self.player = Player(self)
         self.all_players = Group()
         self.all_players.add(self.player)
+        self.comet_event = CometFallEvent()
         self.all_monsters = Group()
         self.pressed = dict()
 
@@ -43,6 +45,8 @@ class Game:
 
         # Application de la barre de vie du joueur
         self.player.update_health_bar(screen)
+
+        self.comet_event.update_bar(screen)
 
         # Déplacement des projectiles
         for projectile in self.player.all_projectiles:
