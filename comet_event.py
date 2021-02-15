@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from pygame import draw
+from pygame import draw, sprite
 from pygame.surface import Surface
+
+from comet import Comet
 
 
 class CometFallEvent:
@@ -10,13 +12,18 @@ class CometFallEvent:
     def __init__(self) -> None:
         self.percent = int()
         self.percent_speed = 5
+        self.all_comets = sprite.Group()
 
     def add_percent(self) -> None:
         self.percent += self.percent_speed / 100
 
     def attempt_fall(self) -> None:
         if self.is_full_loaded():
+            self.comet_fall()
             self.reset_percent()
+
+    def comet_fall(self):
+        self.all_comets.add(Comet())
 
     def is_full_loaded(self) -> bool:
         return self.percent >= 100
