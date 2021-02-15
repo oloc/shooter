@@ -60,6 +60,8 @@ class Game:
         self.player.all_projectiles.draw(screen)
         # Application des monstres sur la surface
         self.all_monsters.draw(screen)
+        # Application des comètes sur la surface
+        self.comet_event.all_comets.draw(screen)
 
         # Déplacement du joueur
         if self.pressed.get(K_RIGHT) and self.player.rect.x + self.player.rect.width < screen.get_width():
