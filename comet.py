@@ -10,3 +10,7 @@ class Comet(sprite.Sprite):
         super().__init__()
         self.image = image.load('assets/comet.png')
         self.rect = self.image.get_rect()
+        self.velocity = 1
+
+    def fall(self):
+        self.rect.y += self.velocity

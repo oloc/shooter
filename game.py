@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from typing import List
+
 from pygame import K_LEFT, K_RIGHT
 from pygame.sprite import Group, Sprite, spritecollide
-
-from typing import List
 
 from comet_event import CometFallEvent
 from monster import Monster
@@ -55,6 +55,8 @@ class Game:
         for monster in self.all_monsters:
             monster.forward()
             monster.update_health_bar(screen)
+        for comet in self.comet_event.all_comets:
+            comet.fall()
 
         # Application des projectiles sur la surface
         self.player.all_projectiles.draw(screen)
